@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="pokemon"
+            type="com.ddapps.pokedex.common.domain.models.Pokemon" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/row_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="16dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        android:layout_margin="8sp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_layout"
+            android:layout_width="match_parent"
+            android:background="@color/blue"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/pokemon_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Titulo"
+                 />
+
+            <TextView
+                android:id="@+id/pokemon_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="#001"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+
+
+            <TextView
+                android:id="@+id/pokemon_type_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Poison"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/pokemon_type_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/pokemon_type_first"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Grass"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/pokemon_type_third"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/pokemon_type_second"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="8dp"
+                android:text="Bug"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="-16dp"
+                android:layout_marginBottom="-24dp"
+                android:adjustViewBounds="true"
+                android:alpha="0.25"
+                android:src="@drawable/pokeball"
+                android:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/pokemonwho" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

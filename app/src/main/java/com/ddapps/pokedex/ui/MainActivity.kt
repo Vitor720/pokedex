@@ -2,21 +2,20 @@ package com.ddapps.pokedex.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.ddapps.pokedex.R
-import com.ddapps.pokedex.database.remote.IApiService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import org.koin.android.ext.android.inject
-import timber.log.Timber
+import com.ddapps.pokedex.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    val api: IApiService by inject()
+    private var binding: ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val navController = this.findNavController(R.id.navHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 }

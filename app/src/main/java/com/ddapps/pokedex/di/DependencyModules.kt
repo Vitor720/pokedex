@@ -1,8 +1,12 @@
 package com.ddapps.pokedex.di
 
-import com.ddapps.pokedex.database.remote.ResponseHandler
-import com.ddapps.pokedex.database.remote.providePokemonApi
-import com.ddapps.pokedex.database.remote.provideRetrofit
+import com.ddapps.pokedex.common.domain.models.usecase.PokemonUseCase
+import com.ddapps.pokedex.data.remote.ResponseHandler
+import com.ddapps.pokedex.data.remote.providePokemonApi
+import com.ddapps.pokedex.data.remote.provideRetrofit
+import com.ddapps.pokedex.data.repository.PokemonRepository
+import com.ddapps.pokedex.ui.HomeViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val apiModule = module {
@@ -12,6 +16,22 @@ val apiModule = module {
 
 }
 
+val viewModelModule = module {
+    viewModel { HomeViewModel(get()) }
+}
+
+val useCaseModule = module {
+    factory { PokemonUseCase(get()) }
+}
+
+val repositoryModule = module {
+    single { PokemonRepository(get()) }
+}
+
+
+
 val modulesList = listOf(
-    apiModule
+    apiModule,
+    viewModelModule,
+    useCaseModule
 )

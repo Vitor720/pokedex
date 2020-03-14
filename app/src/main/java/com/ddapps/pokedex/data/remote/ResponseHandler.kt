@@ -1,4 +1,4 @@
-package com.ddapps.pokedex.database.remote
+package com.ddapps.pokedex.data.remote
 
 import retrofit2.HttpException
 import java.net.SocketTimeoutException

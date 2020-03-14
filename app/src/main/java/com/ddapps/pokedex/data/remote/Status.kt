@@ -1,4 +1,4 @@
-package com.ddapps.pokedex.database.remote
+package com.ddapps.pokedex.data.remote
 
 enum class Status {
     SUCCESS,

@@ -1,4 +1,4 @@
-package com.ddapps.pokedex.database.remote
+package com.ddapps.pokedex.data.remote
 
 import com.ddapps.pokedex.utils.BASE_URL
 import retrofit2.Retrofit
