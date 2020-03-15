@@ -12,14 +12,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 
 import com.ddapps.pokedex.R
 import com.ddapps.pokedex.common.adapter.PokemonListAdapter
-import com.ddapps.pokedex.common.domain.models.Pokemon
+import com.ddapps.pokedex.common.domain.models.ui.Pokemon
 import com.ddapps.pokedex.data.remote.Resource
 import com.ddapps.pokedex.data.remote.Status
 import com.ddapps.pokedex.databinding.HomeFragmentBinding
 import com.ddapps.pokedex.utils.swapVisibility
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
@@ -50,7 +49,7 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        viewModel.getPokemonList().observe(this, observer)
 
     }
 

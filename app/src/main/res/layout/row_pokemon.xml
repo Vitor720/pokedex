@@ -7,7 +7,7 @@
     <data>
         <variable
             name="pokemon"
-            type="com.ddapps.pokedex.common.domain.models.Pokemon" />
+            type="com.ddapps.pokedex.common.domain.models.ui.Pokemon" />
     </data>
 
     <androidx.cardview.widget.CardView

@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ddapps.pokedex.R
-import com.ddapps.pokedex.common.domain.models.Pokemon
+import com.ddapps.pokedex.common.domain.models.ui.Pokemon
 import com.ddapps.pokedex.databinding.RowPokemonBinding
-import kotlinx.android.synthetic.main.row_pokemon.view.*
 
 class PokemonListAdapter(val pokemonList: List<Pokemon>): RecyclerView.Adapter<PokemonListAdapter.PokemonListViewHolder>() {
 

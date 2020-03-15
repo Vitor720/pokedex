@@ -1,6 +1,6 @@
-package com.ddapps.pokedex.common.domain.models.usecase
+package com.ddapps.pokedex.common.domain.usecase
 
-import com.ddapps.pokedex.common.domain.models.Pokemon
+import com.ddapps.pokedex.common.domain.models.ui.Pokemon
 import com.ddapps.pokedex.data.remote.Resource
 import com.ddapps.pokedex.data.remote.Status
 import com.ddapps.pokedex.data.repository.PokemonRepository

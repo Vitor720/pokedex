@@ -1,6 +1,6 @@
 package com.ddapps.pokedex.di
 
-import com.ddapps.pokedex.common.domain.models.usecase.PokemonUseCase
+import com.ddapps.pokedex.common.domain.usecase.PokemonUseCase
 import com.ddapps.pokedex.data.remote.ResponseHandler
 import com.ddapps.pokedex.data.remote.providePokemonApi
 import com.ddapps.pokedex.data.remote.provideRetrofit
@@ -33,5 +33,6 @@ val repositoryModule = module {
 val modulesList = listOf(
     apiModule,
     viewModelModule,
-    useCaseModule
+    useCaseModule,
+    repositoryModule
 )

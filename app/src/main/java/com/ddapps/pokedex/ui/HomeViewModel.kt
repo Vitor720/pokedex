@@ -2,9 +2,11 @@ package com.ddapps.pokedex.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ddapps.pokedex.common.domain.models.Pokemon
-import com.ddapps.pokedex.common.domain.models.usecase.PokemonUseCase
+import androidx.lifecycle.viewModelScope
+import com.ddapps.pokedex.common.domain.models.ui.Pokemon
+import com.ddapps.pokedex.common.domain.usecase.PokemonUseCase
 import com.ddapps.pokedex.data.remote.Resource
+import kotlinx.coroutines.launch
 
 class HomeViewModel(private val useCase: PokemonUseCase) : ViewModel() {
 
@@ -12,9 +14,15 @@ class HomeViewModel(private val useCase: PokemonUseCase) : ViewModel() {
 
     fun getPokemonList() = pokemonList
 
-    suspend fun updatePokemonList(){
-        pokemonList.postValue(Resource.loading(null))
-        pokemonList.postValue(useCase.getPokemonList())
+    fun updatePokemonList() {
+        viewModelScope.launch {
+            pokemonList.postValue(Resource.loading(null))
+            pokemonList.postValue(useCase.getPokemonList())
+        }
+    }
+
+    init {
+        updatePokemonList()
     }
 
 }
