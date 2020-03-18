@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 @BindingAdapter("imageUrl")
 fun ImageView.load(imagemUrl: String?) {
     val imageView = this
-    val url = "https://$imagemUrl"
+    val url = "$IMAGE_URL$imagemUrl.png"
     val requestOptions = Glide.with(imageView.context).load(url)
     requestOptions.into(this)
 }

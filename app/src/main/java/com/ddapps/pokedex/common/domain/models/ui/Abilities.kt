@@ -1,5 +1,4 @@
 package com.ddapps.pokedex.common.domain.models.ui
 
-class Abilities {
-
-}
+class Abilities(val name: String?,
+                val url: String?)

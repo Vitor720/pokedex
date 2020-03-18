@@ -11,10 +11,6 @@ import com.ddapps.pokedex.R
 
 class PokemonDisplayFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PokemonDisplayFragment()
-    }
-
     private lateinit var viewModel: PokemonDisplayViewModel
 
     override fun onCreateView(

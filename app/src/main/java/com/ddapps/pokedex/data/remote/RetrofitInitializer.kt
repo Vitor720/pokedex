@@ -13,3 +13,4 @@ fun provideRetrofit(): Retrofit {
 fun providePokemonApi(retrofit: Retrofit): IApiService {
     return retrofit.create(IApiService::class.java)
 }
+

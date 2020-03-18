@@ -25,7 +25,7 @@ val useCaseModule = module {
 }
 
 val repositoryModule = module {
-    single { PokemonRepository(get()) }
+    single { PokemonRepository(get(), get()) }
 }
 
 

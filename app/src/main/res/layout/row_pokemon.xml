@@ -7,7 +7,7 @@
     <data>
         <variable
             name="pokemon"
-            type="com.ddapps.pokedex.common.domain.models.ui.Pokemon" />
+            type="com.ddapps.pokedex.common.domain.models.ui.SimplePokemon" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -35,7 +35,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="Titulo"
+                android:text="@{pokemon.getPokemonName()}"
                  />
 
             <TextView
@@ -44,50 +44,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="#001"
+                android:text="@{pokemon.getPokemonID()}"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 />
-
-
-            <TextView
-                android:id="@+id/pokemon_type_first"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="Poison"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/pokemon_type_second"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/pokemon_type_first"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="Grass"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/pokemon_type_third"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@id/pokemon_type_second"
-                app:layout_constraintStart_toStartOf="parent"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingTop="8dp"
-                android:text="Bug"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="96dp"
@@ -108,6 +68,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:adjustViewBounds="true"
+                bind:imageUrl="@{pokemon.getPokemonID()}"
                 android:src="@drawable/pokemonwho" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
