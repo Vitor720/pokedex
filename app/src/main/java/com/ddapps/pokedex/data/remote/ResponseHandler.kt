@@ -19,9 +19,9 @@ open class ResponseHandler {
     private fun getErrorMessage(code: Int): String {
         return when (code) {
             -1 -> "Timeout"
-            401 -> "Não autorizado"
-            404 -> "Não encontrado"
-            else -> "Error"
+            401 -> "Not Authorized"
+            404 -> "Not Found"
+            else -> "No Internet Dected"
         }
     }
 }

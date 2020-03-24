@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="espacamento_minimo">2dp</dimen>
+    <dimen name="espacamento_curto">4dp</dimen>
+    <dimen name="espacamento_medio">8dp</dimen>
+    <dimen name="espacamento_grande">12dp</dimen>
+    <dimen name="espacamento_maximo">16dp</dimen>
+    <dimen name="espacamento_maximo_2">24dp</dimen>
+</resources>

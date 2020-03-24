@@ -10,13 +10,16 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ddapps.pokedex.R
 import com.ddapps.pokedex.common.domain.models.ui.SimplePokemon
 import com.ddapps.pokedex.databinding.RowPokemonBinding
+import com.ddapps.pokedex.utils.IOnclickListener
 import com.ddapps.pokedex.utils.VIEW_ITEM
 import com.ddapps.pokedex.utils.VIEW_PROGRESS
 
-class PokemonListAdapter(val pokemonList: List<SimplePokemon>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PokemonListAdapter(val pokemonList: List<SimplePokemon>, val clickListener: IOnclickListener): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var loading = false
 
     private var filteredPokemonList = mutableListOf<SimplePokemon>()
+
+    private var firstLoad = true
 
     init {
         filteredPokemonList.addAll(pokemonList)
@@ -44,8 +47,8 @@ class PokemonListAdapter(val pokemonList: List<SimplePokemon>): RecyclerView.Ada
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = filteredPokemonList[position]
         when(holder){
-            is PokemonListViewHolder -> {holder.bind(item)}
-            is ProgressViewHolder -> { holder.progress_bar.isIndeterminate = true }
+            is PokemonListViewHolder -> {holder.bind(item); holder.rowLayout.setOnClickListener { clickListener.onClick(item.getPokemonID().toInt()) }}
+            is ProgressViewHolder -> { holder.progressBar.isIndeterminate = true }
         }
 
         if (item.progress) {
@@ -67,7 +70,7 @@ class PokemonListAdapter(val pokemonList: List<SimplePokemon>): RecyclerView.Ada
     }
 
     class ProgressViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        public var progress_bar: ProgressBar = v.findViewById<View>(R.id.progress_bar) as ProgressBar
+        var progressBar: ProgressBar = v.findViewById<View>(R.id.progress_bar) as ProgressBar
     }
 
     fun setLoaded() {
@@ -81,7 +84,7 @@ class PokemonListAdapter(val pokemonList: List<SimplePokemon>): RecyclerView.Ada
     }
 
     fun setLoading() {
-        if (itemCount != 0) {
+        if (itemCount == 0 ) {
             val pokemon = filteredPokemonList.first().copy().apply { this.progress = true }
             filteredPokemonList.add(pokemon)
             notifyItemInserted(itemCount - 1)
