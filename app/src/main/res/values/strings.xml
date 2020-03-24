@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">pokedex</string>
+    <string name="search_hint">Digite o nome ou id do pokemon</string>
+    <string name="app_label">Pokedex</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pokemon_stats">Base Stats</string>
+    <string name="pokemon_evolution">Evolution</string>
+    <string name="pokemon_abilities">Abilities</string>
 </resources>
